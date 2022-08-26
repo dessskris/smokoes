@@ -8,7 +8,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import logo from './logo.svg';
 import Home from './Home';
 import Leaderboard from './Leaderboard';
-import { users as rawUsers } from './data.js';
+import { userId, users as rawUsers } from './data.js';
 import './App.scss';
 
 const theme = createTheme({
@@ -22,15 +22,27 @@ const theme = createTheme({
   },
 });
 
+const calculatePoints = user => (user.cravingCount - user.smokingCount) * 100
+
 const App = () => {
   const [nav, setNav] = React.useState(0)
-  const [users, setusers] = React.useState(rawUsers.map((user) => {
-    const points = (user.cravingCount - user.smokeCount) * 100
+  const [users, setUsers] = React.useState(rawUsers.map((user) => {
     return {
       ...user,
-      points: points,
+      points: calculatePoints(user),
     }
   }))
+  const [currentUser, setCurrentUser] = React.useState(users?.find(user => user.id === userId))
+
+  React.useEffect(() => {
+    setUsers(prevState => {
+      return prevState.map(user =>
+        user.id === userId
+          ? {...currentUser, points: calculatePoints(currentUser)}
+          : user)
+    })
+  }, [currentUser]);
+
   const renderComponent = () => {
     switch (nav) {
       case 1:
@@ -39,9 +51,10 @@ const App = () => {
         return <Leaderboard users={users} />;
       case 0:
       default:
-        return <Home />;
+        return <Home user={currentUser} setUser={setCurrentUser} />;
     }
   }
+
   return (
     <ThemeProvider theme={theme}>
       <div className="app">

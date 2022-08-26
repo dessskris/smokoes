@@ -1,3 +1,21 @@
-.button {
+.home {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.button.button {
   color: white;
+  margin: 8px 0px;
+}
+.button.button:first-of-type {
+  margin-top: 20px;
+}
+.button.button:last-of-type {
+  margin-bottom: 20px;
+}
+
+.italic {
+  font-style: italic;
 }
