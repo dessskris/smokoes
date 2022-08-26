@@ -4,7 +4,6 @@ import AppBar from '@mui/material/AppBar';
 import { BottomNavigation, BottomNavigationAction, Container } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
-import PersonIcon from '@mui/icons-material/Person';
 import logo from './logo.svg';
 import Home from './Home';
 import Leaderboard from './Leaderboard';
@@ -47,8 +46,6 @@ const App = () => {
     switch (nav) {
       case 1:
         return <Leaderboard users={users} />;
-      case 2:
-        return <Leaderboard users={users} />;
       case 0:
       default:
         return <Home user={currentUser} setUser={setCurrentUser} />;
@@ -70,7 +67,6 @@ const App = () => {
         }} className="bottom-nav" showLabels>
           <BottomNavigationAction label="Home" icon={<HomeIcon />} />
           <BottomNavigationAction label="Leaderboard" icon={<LeaderboardIcon />} />
-          <BottomNavigationAction label="My Profile" icon={<PersonIcon />} />
         </BottomNavigation>
       </div>
     </ThemeProvider>
