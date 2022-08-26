@@ -1,0 +1,19 @@
+.logo-container.logo-container {
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  background-color: #DAF7A6;
+  color: #58D68D;
+}
+
+.logo {
+  height: 40px;
+}
+
+.bottom-nav.bottom-nav {
+  background-color: #DAF7A6;
+
+  .MuiBottomNavigationAction-root {
+    color: #27AE60;
+  }
+}
