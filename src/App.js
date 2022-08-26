@@ -1,27 +1,58 @@
 import * as React from 'react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
-import { BottomNavigation, BottomNavigationAction } from '@mui/material';
+import { BottomNavigation, BottomNavigationAction, Container } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import PersonIcon from '@mui/icons-material/Person';
 import logo from './logo.svg';
+import Home from './Home';
+import Leaderboard from './Leaderboard';
 import './App.scss';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#27AE60',
+    },
+    secondary: {
+      main: '#DAF7A6',
+    },
+  },
+});
 
 const App = () => {
   const [nav, setNav] = React.useState(0)
+  const renderComponent = () => {
+    switch (nav) {
+      case 1:
+        return <Leaderboard />;
+      case 2:
+        return <Leaderboard />;
+      case 0:
+      default:
+        return <Home />;
+    }
+  }
   return (
-    <div className="App">
-      <AppBar className="logo-container" position="static" color="transparent">
-      <img src={logo} className="logo" alt="SMOKoes logo" />
-      </AppBar>
-      <BottomNavigation value={nav} onChange={(_e, newValue) => {
-        setNav(newValue);
-      }} className="bottom-nav" showLabels>
-        <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-        <BottomNavigationAction label="Leaderboard" icon={<LeaderboardIcon />} />
-        <BottomNavigationAction label="My Profile" icon={<PersonIcon />} />
-      </BottomNavigation>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="app">
+        <AppBar className="logo-container" position="static" color="transparent">
+          <img src={logo} className="logo" alt="SMOKoes logo" />
+          <h1>SMOKoes</h1>
+        </AppBar>
+        <Container maxWidth="sm">
+          <div className="main-container">{renderComponent()}</div>
+        </Container>
+        <BottomNavigation value={nav} onChange={(_e, newValue) => {
+          setNav(newValue);
+        }} className="bottom-nav" showLabels>
+          <BottomNavigationAction label="Home" icon={<HomeIcon />} />
+          <BottomNavigationAction label="Leaderboard" icon={<LeaderboardIcon />} />
+          <BottomNavigationAction label="My Profile" icon={<PersonIcon />} />
+        </BottomNavigation>
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -1,16 +1,34 @@
+.app {
+  min-height: 100vh;
+}
+
 .logo-container.logo-container {
-  height: 56px;
+  height: 70px;
   display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
   background-color: #DAF7A6;
-  color: #58D68D;
+  color: #27AE60;
 }
 
 .logo {
   height: 40px;
+  margin-right: 12px;
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding-top: 32px;
 }
 
 .bottom-nav.bottom-nav {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
   background-color: #DAF7A6;
 
   .MuiBottomNavigationAction-root {
