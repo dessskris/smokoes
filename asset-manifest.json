@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/smokoes/static/css/main.76fe8a89.css",
+    "main.js": "/smokoes/static/js/main.b434a212.js",
+    "static/js/787.7c88b69f.chunk.js": "/smokoes/static/js/787.7c88b69f.chunk.js",
+    "static/media/logo.svg": "/smokoes/static/media/logo.89b1cfc85360e2d37cb5dc8d92e261da.svg",
+    "index.html": "/smokoes/index.html",
+    "main.76fe8a89.css.map": "/smokoes/static/css/main.76fe8a89.css.map",
+    "main.b434a212.js.map": "/smokoes/static/js/main.b434a212.js.map",
+    "787.7c88b69f.chunk.js.map": "/smokoes/static/js/787.7c88b69f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.76fe8a89.css",
+    "static/js/main.b434a212.js"
+  ]
+}
